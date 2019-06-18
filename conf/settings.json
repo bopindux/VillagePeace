@@ -1,0 +1,12 @@
+{
+	"modname": "VillagePeace",
+	"modversion": "1.0",
+	"mcpconfig": "1.14.2-20190603.175704",
+	"mappings": "20190604-1.14.2",
+	"mcversion": "1.14.2",
+	"pipeline": "joined",
+	"clientmain": "mcp.client.Start",
+	"servermain": "net.minecraft.server.MinecraftServer",
+	"reformat": true,
+	"customsrg": null
+}

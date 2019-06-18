@@ -1,0 +1,1 @@
+/* This vanilla mod consists only of patches */

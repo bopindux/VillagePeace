@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/spawner/PatrolSpawner.java
++++ b/net/minecraft/world/spawner/PatrolSpawner.java
+@@ -23,7 +23,7 @@
+ 
+     public int func_222696_a(ServerWorld p_222696_1_, boolean p_222696_2_, boolean p_222696_3_)
+     {
+-        if (!p_222696_2_)
++        if (!p_222696_2_ || p_222696_1_.getGameRules().getBoolean("disableIllagerPatrols"))
+         {
+             return 0;
+         }

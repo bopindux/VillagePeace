@@ -1,0 +1,11 @@
+--- a/net/minecraft/world/raid/Raid.java
++++ b/net/minecraft/world/raid/Raid.java
+@@ -236,7 +236,7 @@
+                 boolean flag = this.active;
+                 this.active = this.world.isBlockLoaded(this.field_221347_k);
+ 
+-                if (this.world.getDifficulty() == Difficulty.PEACEFUL)
++                if (this.world.getDifficulty() == Difficulty.PEACEFUL || this.world.getGameRules().getBoolean("disableRaids"))
+                 {
+                     this.stop();
+                     return;
