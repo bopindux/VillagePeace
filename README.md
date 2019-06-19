@@ -35,7 +35,6 @@ Run gradle task `createRelease` to create zip files in `build/distributions` wit
 
 ## Installation
 Just as for any other jar mod. 
-- Copy content of release zip files to vanilla client or server jar (e.g. using 7-zip) and remove `META-INF`in client jar.
-- Run client jar: create a new version by copying the client jar to a new folder in your .minecraft/versions. Name the folder like the client jar. 
-Add the .json file  from the vanilla version. Create a new profile in the launcher using the new version.
+- Copy content of [release zip files](https://github.com/bopindux/VillagePeace/releases) to vanilla client or server jar (e.g. using 7-zip) and remove `META-INF`in client jar. You find the vanilla client jar in your .minecraft/versions directory.
+- Run client jar: create a new minecraft version for the launcher by copying the client jar to a new folder in your .minecraft/versions and rename to 1.14.2-VillagePeace.jar. Name the folder like the client jar (1.14.2-VillagePeace). Add the .json file from the vanilla version and rename like folder (1.14.2-VillagePeace.json). Create a new profile in the launcher using the new version.
 - Run server jar same as for vanilla jar.
