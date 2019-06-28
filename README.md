@@ -2,12 +2,12 @@
 Minecraft Vanilla JAR Mod using the [jarmod-buildsystem-2](https://github.com/Earthcomputer/jarmod-buildsystem-2).
 
 The mods only consists of vanilla patches:
-- gamerule disableRaids
+~~- gamerule disableRaids~~ (1.14.4 vanilla now has this gamerule already)
 - gamerule disableIllagerPatrols
 - gamerule disableZombieSiege
 - Multiplayer: one player sleeping sufficient to set daytime
 
-The mod is currently for 1.14.2. 
+This branch is for 1.14.3. Note, that it only compiles with manual changes due to problem in mappings. See commit message.
 
 ## Why this mod
 When Minecraft 1.14 came out I wanted to use the new features (blocks!) on my old map, 
@@ -36,5 +36,6 @@ Run gradle task `createRelease` to create zip files in `build/distributions` wit
 ## Installation
 Just as for any other jar mod. 
 - Copy content of [release zip files](https://github.com/bopindux/VillagePeace/releases) to vanilla client or server jar (e.g. using 7-zip) and remove `META-INF`in client jar. You find the vanilla client jar in your .minecraft/versions directory.
-- Run client jar: create a new minecraft version for the launcher by copying the client jar to a new folder in your .minecraft/versions and rename to 1.14.2-VillagePeace.jar. Name the folder like the client jar (1.14.2-VillagePeace). Add the .json file from the vanilla version and rename like folder (1.14.2-VillagePeace.json). Create a new profile in the launcher using the new version.
+- Run client jar: create a new minecraft version for the launcher by copying the client jar to a new folder in your .minecraft/versions and rename to 1.14.3-VillagePeace.jar. Name the folder like the client jar (1.14.3-VillagePeace). Add the .json file from the vanilla version or take the one from the release zip and rename like folder (1.14.3-VillagePeace.json). Note that you have to empty the 'download' tag in the json to avoid that the vanilla client jar is re-downloaded.
+Create a new profile in the launcher using the new version 1.14.3-VillagePeace.
 - Run server jar same as for vanilla jar.
