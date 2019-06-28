@@ -1,11 +1,19 @@
 --- a/net/minecraft/world/spawner/PatrolSpawner.java
 +++ b/net/minecraft/world/spawner/PatrolSpawner.java
-@@ -23,7 +23,7 @@
+@@ -8,6 +8,7 @@
+ import net.minecraft.entity.player.PlayerEntity;
+ import net.minecraft.nbt.CompoundNBT;
+ import net.minecraft.util.math.BlockPos;
++import net.minecraft.world.GameRules;
+ import net.minecraft.world.ServerWorld;
+ import net.minecraft.world.World;
+ import net.minecraft.world.biome.Biome;
+@@ -19,7 +20,7 @@
  
-     public int func_222696_a(ServerWorld p_222696_1_, boolean p_222696_2_, boolean p_222696_3_)
+     public int tick(ServerWorld worldIn, boolean spawnHostileMobs, boolean spawnPeacefulMobs)
      {
--        if (!p_222696_2_)
-+        if (!p_222696_2_ || p_222696_1_.getGameRules().getBoolean("disableIllagerPatrols"))
+-        if (!spawnHostileMobs)
++        if (!spawnHostileMobs || worldIn.getGameRules().getBoolean(GameRules.DISABLE_ILLAGER_PATROLS))
          {
              return 0;
          }

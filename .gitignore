@@ -1,3 +1,5 @@
+/runclient
+/runserver
 /.gradle/
 /projects/
 .project

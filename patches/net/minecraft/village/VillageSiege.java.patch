@@ -1,54 +1,19 @@
 --- a/net/minecraft/village/VillageSiege.java
 +++ b/net/minecraft/village/VillageSiege.java
-@@ -33,7 +33,7 @@
+@@ -11,6 +11,7 @@
+ import net.minecraft.util.math.BlockPos;
+ import net.minecraft.util.math.MathHelper;
+ import net.minecraft.util.math.Vec3d;
++import net.minecraft.world.GameRules;
+ import net.minecraft.world.ServerWorld;
+ import net.minecraft.world.gen.Heightmap;
+ import net.minecraft.world.spawner.WorldEntitySpawner;
+@@ -33,7 +34,7 @@
  
      public void tick()
      {
--        if (this.field_75537_a.isDaytime())
-+        if (this.field_75537_a.isDaytime() || this.field_75537_a.getGameRules().getBoolean("disableZombieSiege"))
+-        if (this.world.isDaytime())
++        if (this.world.isDaytime() || this.world.getGameRules().getBoolean(GameRules.DISABLE_ZOMBIE_SIEGE))
          {
-             this.field_75536_c = VillageSiege.State.SIEGE_DONE;
+             this.siegeState = VillageSiege.State.SIEGE_DONE;
              this.hasSetupSiege = false;
-@@ -97,7 +97,7 @@
-             if (!playerentity.isSpectator())
-             {
-                 BlockPos blockpos = new BlockPos(playerentity);
--
-+                Vec3d vec3d = null;
-                 if (this.field_75537_a.func_217483_b_(blockpos))
-                 {
-                     for (int i = 0; i < 10; ++i)
-@@ -106,15 +106,19 @@
-                         this.spawnX = blockpos.getX() + MathHelper.floor(MathHelper.cos(f) * 32.0F);
-                         this.spawnY = blockpos.getY();
-                         this.spawnZ = blockpos.getZ() + MathHelper.floor(MathHelper.sin(f) * 32.0F);
-+                        vec3d = this.findRandomSpawnPos(new BlockPos(this.spawnX, this.spawnY, this.spawnZ));
-+                        if (vec3d != null)
-+                        {
-+                            break;
-+                        }
-                     }
- 
--                    Vec3d vec3d = this.findRandomSpawnPos(new BlockPos(this.spawnX, this.spawnY, this.spawnZ));
- 
--                    if (vec3d != null)
--                    {
--                        break;
--                    }
-                 }
-+                if (vec3d != null)
-+                {
-+                    break;
-+                }
-             }
-         }
- 
-@@ -154,7 +158,7 @@
-         {
-             BlockPos blockpos = pos.add(this.field_75537_a.rand.nextInt(16) - 8, this.field_75537_a.rand.nextInt(6) - 3, this.field_75537_a.rand.nextInt(16) - 8);
- 
--            if (this.field_75537_a.func_217483_b_(blockpos) && WorldEntitySpawner.canCreatureTypeSpawnAtLocation(EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, this.field_75537_a, blockpos, (EntityType<?>)null))
-+            if (this.field_75537_a.func_217483_b_(blockpos) && WorldEntitySpawner.canCreatureTypeSpawnAtLocation(EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, this.field_75537_a, blockpos, EntityType.field_200725_aD))
-             {
-                 return new Vec3d((double)blockpos.getX(), (double)blockpos.getY(), (double)blockpos.getZ());
-             }
