@@ -1,8 +1,8 @@
 {
 	"modname": "VillagePeace",
-	"modversion": "1.1",
+	"modversion": "1.1.1",
 	"mcpconfig": "1.14.3-20190624.152911",
-	"mappings": "20190628-1.14.3",
+	"mappings": "20190630-1.14.3",
 	"mcversion": "1.14.3",
 	"pipeline": "joined",
 	"clientmain": "mcp.client.Start",
