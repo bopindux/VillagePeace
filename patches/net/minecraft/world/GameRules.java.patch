@@ -1,11 +1,10 @@
 --- a/net/minecraft/world/GameRules.java
 +++ b/net/minecraft/world/GameRules.java
-@@ -63,6 +63,8 @@
-     public static final GameRules.RuleKey<GameRules.IntegerValue> MAX_COMMAND_CHAIN_LENGTH = register("maxCommandChainLength", GameRules.IntegerValue.create(65536));
-     public static final GameRules.RuleKey<GameRules.BooleanValue> ANNOUNCE_ADVANCEMENTS = register("announceAdvancements", GameRules.BooleanValue.create(true));
-     public static final GameRules.RuleKey<GameRules.BooleanValue> DISABLE_RAIDS = register("disableRaids", GameRules.BooleanValue.create(false));
-+    public static final GameRules.RuleKey<GameRules.BooleanValue> DISABLE_ILLAGER_PATROLS = register("disableIllagerPatrols", GameRules.BooleanValue.create(false));
-+    public static final GameRules.RuleKey<GameRules.BooleanValue> DISABLE_ZOMBIE_SIEGE = register("disableZombieSiege", GameRules.BooleanValue.create(false));
-     private final Map < GameRules.RuleKey<?>, GameRules.RuleValue<? >> rules = GAME_RULES.entrySet().stream().collect(ImmutableMap.toImmutableMap(Entry::getKey, (p_223593_0_) ->
+@@ -79,6 +79,7 @@
+     public static final GameRules.RuleKey<GameRules.BooleanValue> FIRE_DAMAGE = register("fireDamage", GameRules.BooleanValue.create(true));
+     public static final GameRules.RuleKey<GameRules.BooleanValue> field_230127_D_ = register("doPatrolSpawning", GameRules.BooleanValue.create(true));
+     public static final GameRules.RuleKey<GameRules.BooleanValue> field_230128_E_ = register("doTraderSpawning", GameRules.BooleanValue.create(true));
++    public static final GameRules.RuleKey<GameRules.BooleanValue> DISABLE_ZOMBIE_SIEGE = register("disableZombieSiege", GameRules.BooleanValue.create(true));
+     private final Map < GameRules.RuleKey<?>, GameRules.RuleValue<? >> rules = GAME_RULES.entrySet().stream().collect(ImmutableMap.toImmutableMap(Entry::getKey, (p_226684_0_) ->
      {
-         return p_223593_0_.getValue().func_223579_a();
+         return p_226684_0_.getValue().createValue();

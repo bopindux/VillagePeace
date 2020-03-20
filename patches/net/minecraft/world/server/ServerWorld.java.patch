@@ -1,6 +1,6 @@
---- a/net/minecraft/world/ServerWorld.java
-+++ b/net/minecraft/world/ServerWorld.java
-@@ -305,9 +305,9 @@
+--- a/net/minecraft/world/server/ServerWorld.java
++++ b/net/minecraft/world/server/ServerWorld.java
+@@ -328,9 +328,9 @@
              this.getWorldInfo().setDifficulty(Difficulty.HARD);
          }
  
@@ -12,7 +12,7 @@
          }))
          {
              this.allPlayersSleeping = false;
-@@ -601,7 +601,7 @@
+@@ -634,7 +634,7 @@
                  }
              }
  

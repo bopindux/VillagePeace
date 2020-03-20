@@ -1,19 +1,21 @@
 --- a/net/minecraft/village/VillageSiege.java
 +++ b/net/minecraft/village/VillageSiege.java
-@@ -11,6 +11,7 @@
- import net.minecraft.util.math.BlockPos;
- import net.minecraft.util.math.MathHelper;
- import net.minecraft.util.math.Vec3d;
-+import net.minecraft.world.GameRules;
- import net.minecraft.world.ServerWorld;
+@@ -14,7 +14,9 @@
+ import net.minecraft.world.biome.Biome;
  import net.minecraft.world.gen.Heightmap;
- import net.minecraft.world.spawner.WorldEntitySpawner;
-@@ -33,7 +34,7 @@
+ import net.minecraft.world.server.ServerWorld;
++import net.minecraft.world.GameRules;
  
-     public void tick()
++
+ public class VillageSiege
+ {
+     private boolean hasSetupSiege;
+@@ -27,7 +29,7 @@
+ 
+     public int func_225477_a(ServerWorld p_225477_1_, boolean p_225477_2_, boolean p_225477_3_)
      {
--        if (this.world.isDaytime())
-+        if (this.world.isDaytime() || this.world.getGameRules().getBoolean(GameRules.DISABLE_ZOMBIE_SIEGE))
+-        if (!p_225477_1_.isDaytime() && p_225477_2_)
++        if (!p_225477_1_.isDaytime() && p_225477_2_ && !p_225477_1_.getGameRules().getBoolean(GameRules.DISABLE_ZOMBIE_SIEGE))
          {
-             this.siegeState = VillageSiege.State.SIEGE_DONE;
-             this.hasSetupSiege = false;
+             float f = p_225477_1_.getCelestialAngle(0.0F);
+ 
